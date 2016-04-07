@@ -11,7 +11,7 @@ namespace WSI
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     /// 
-    
+
     public partial class MainWindow : Window
     {
         private bool isAdmin = false;
@@ -44,43 +44,22 @@ namespace WSI
 
         private void passwordOk_Click(object sender, RoutedEventArgs e)
         {
+            DataTable result = Database.selectQuery("SELECT password FROM Settings");
+            DataRow row = result.Rows[0];
 
-            using (SqlConnection con = new SqlConnection(Database.Instance.getConnection().ConnectionString))
+
+            if (HashAuth.Verify(password.Password, row.Field<string>(0)))
             {
-                using (SqlCommand cmd = new SqlCommand())
-                {
-
-                        cmd.Connection = con;
-                        cmd.CommandType = CommandType.Text;
-                        cmd.CommandText = "SELECT password FROM Settings"; 
-                        con.Open();
-
-                        SqlDataAdapter da = new SqlDataAdapter(cmd);
-                        DataTable dt = new DataTable();
-                        da.Fill(dt);
-
-                        DataRow row = dt.Rows[0];
-
-
-                    if (HashAuth.Verify(password.Password, row.Field<string>(0)))
-                    {
-                        isAdmin = true;
-                        dictionariesManag.Visibility = Visibility.Visible;
-                        password.Password = "";
-                        passwordBox.Visibility = Visibility.Hidden;
-                    }
-                    else
-                    {
-                        MessageBox.Show("Błędne hasło.");
-                    }
-
-                    
-
-                }
+                isAdmin = true;
+                dictionariesManag.Visibility = Visibility.Visible;
+                password.Password = "";
+                passwordBox.Visibility = Visibility.Hidden;
             }
-        
+            else
+            {
+                MessageBox.Show("Błędne hasło.");
+            }
 
-            
         }
     }
 }
