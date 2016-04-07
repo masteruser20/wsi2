@@ -5,8 +5,33 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WSI"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
-    <Grid>
-        
+        Title="MainWindow" Height="461.834" Width="539.497">
+    <Grid x:Name="content">
+        <Button x:Name="administratorBtn" Content="Administrator" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="87" Background="White" Margin="0,0,5,5" Click="administratorBtn_Click"/>
+
+        <TabControl x:Name="tabControl" Margin="0,10,0,28">
+            <TabItem Header="Łamanie hasła">
+                <Grid Background="#FFE5E5E5"/>
+            </TabItem>
+            <TabItem Header="Słowniki">
+                <Grid Background="#FFE5E5E5">
+                </Grid>
+            </TabItem>
+            <TabItem x:Name="dictionariesManag" Header="Zarządzanie słownikami" HorizontalAlignment="Left" VerticalAlignment="Top" Visibility="Hidden">
+                <Grid Background="#FFE5E5E5"/>
+            </TabItem>
+        </TabControl>
+
+        <Grid x:Name="passwordBox" HorizontalAlignment="Left" Margin="127,164,0,0" VerticalAlignment="Top" Background="White" Width="260" Height="73" Visibility="Hidden">
+            <Grid Background="AntiqueWhite">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="36*"/>
+                    <RowDefinition Height="37*"/>
+                </Grid.RowDefinitions>
+                <PasswordBox x:Name="password" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="239" Height="22" />
+                <Button x:Name="passwordCancel" Content="Anuluj" HorizontalAlignment="Left" Margin="174,9,0,0" Grid.Row="1" VerticalAlignment="Top" Width="75" Height="20" Click="passwordCancel_Click" />
+                <Button x:Name="passwordOk" Content="Ok" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="75" Height="20" Margin="85,9,0,0" Grid.Row="1" Click="passwordOk_Click" />
+            </Grid>
+        </Grid>
     </Grid>
 </Window>
