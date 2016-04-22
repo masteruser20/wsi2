@@ -1,0 +1,37 @@
+﻿<Page x:Class="WSI.Management"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WSI"
+      mc:Ignorable="d" 
+      Title="Management">
+
+    <Grid HorizontalAlignment="Left" VerticalAlignment="Top" Width="470" Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition Height="25" />
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="4*"></ColumnDefinition>
+            <ColumnDefinition Width="2*"></ColumnDefinition>
+            <ColumnDefinition Width="3*"></ColumnDefinition>
+            <ColumnDefinition Width="2*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Label Grid.Row="0" Grid.Column="0">Dodawanie słownika</Label>
+
+        <TextBox x:Name="openFileTextBox" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Left" IsReadOnly="True" TextWrapping="NoWrap" TextAlignment="Right" VerticalAlignment="Top" Width="171"  Height="24"/>
+        <Button x:Name="loadDictionaryBtn" Grid.Row="1" Grid.Column="1" Content="Wybierz" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Height="24" Margin="10,0,0,0" Click="loadDictionaryBtn_Click"/>
+        <TextBox x:Name="dictionaryName" Grid.Row="1" Text="Nazwa slownika..." Grid.Column="2" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top"  Margin="5,0,0,0" Width="113" Height="24" GotFocus="dictionaryName_GotFocus" FontSize="13.333"/>
+        <Button x:Name="saveDictionaryBtn" Grid.Column="3" Grid.Row="1" Content="Wczytaj" Margin="5,0,0,0" Click="saveDictionaryBtn_Click"></Button>
+
+        <Label Grid.Row="2" Grid.Column="0">Usuwanie słownika</Label>
+
+        <ComboBox Text="Słowniki..." Grid.Column="0" Grid.Row="3" x:Name="DictionariesList">
+        </ComboBox>
+        
+        <Button Content="Usuń" x:Name="deleteDictionaryBtn" Grid.Row="3" Grid.Column="1" BorderThickness="1" Margin="10,0,0,0" Click="deleteDictionaryBtn_Click"></Button>
+    </Grid>
+</Page>

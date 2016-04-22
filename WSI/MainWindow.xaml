@@ -15,10 +15,13 @@
             </TabItem>
             <TabItem Header="Słowniki">
                 <Grid Background="#FFE5E5E5">
+                    <Frame Background="White" Name="dictionaries" Source="Dictionaries.xaml"/>
                 </Grid>
             </TabItem>
             <TabItem x:Name="dictionariesManag" Header="Zarządzanie słownikami" HorizontalAlignment="Left" VerticalAlignment="Top" Visibility="Hidden">
-                <Grid Background="#FFE5E5E5"/>
+                <Grid Background="#FFE5E5E5">
+                    <Frame Background="White" Name="management" Source="Management.xaml"/>
+                </Grid>
             </TabItem>
         </TabControl>
 

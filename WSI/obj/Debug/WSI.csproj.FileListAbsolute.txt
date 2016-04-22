@@ -17,3 +17,7 @@ C:\Users\tkrzy\OneDrive\Documents\Visual Studio 2015\Projects\WSI\WSI\bin\Debug\
 C:\Users\tkrzy\OneDrive\Documents\Visual Studio 2015\Projects\WSI\WSI\bin\Debug\Database_log.ldf
 C:\Users\tkrzy\OneDrive\Documents\Visual Studio 2015\Projects\WSI\WSI\bin\Debug\AutoMapper.dll
 C:\Users\tkrzy\OneDrive\Documents\Visual Studio 2015\Projects\WSI\WSI\bin\Debug\AutoMapper.xml
+C:\Users\tkrzy\OneDrive\Documents\Visual Studio 2015\Projects\WSI\WSI\obj\Debug\dictionaries.g.cs
+C:\Users\tkrzy\OneDrive\Documents\Visual Studio 2015\Projects\WSI\WSI\obj\Debug\dictionaries.baml
+C:\Users\tkrzy\OneDrive\Documents\Visual Studio 2015\Projects\WSI\WSI\obj\Debug\management.g.cs
+C:\Users\tkrzy\OneDrive\Documents\Visual Studio 2015\Projects\WSI\WSI\obj\Debug\management.baml

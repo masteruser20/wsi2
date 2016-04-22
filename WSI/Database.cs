@@ -15,6 +15,8 @@ namespace WSI
         private static volatile Database instance;
         private readonly SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\tkrzy\OneDrive\Documents\Visual Studio 2015\Projects\WSI\WSI\Database.mdf;Integrated Security=True");
         private static object syncRoot = new Object();
+        public static int lastId;
+
 
         private Database()
         {
@@ -42,14 +44,59 @@ namespace WSI
                     DataTable dt = new DataTable();
                     da.Fill(dt);
 
-
+                    con.Close();
                     return dt;
 
                 }
             }
 
         }
-        
+
+        public static Boolean insertQuery(string query)
+        {
+            using (SqlConnection con = new SqlConnection(Database.Instance.getConnection().ConnectionString))
+            {
+                using (SqlCommand cmd = new SqlCommand())
+                {
+
+                    cmd.Connection = con;
+                    cmd.CommandType = CommandType.Text;
+                    cmd.CommandText = query;
+                    con.Open();
+
+                    cmd.ExecuteNonQuery();
+
+
+                    con.Close();
+
+                    return true;
+                }
+            }
+
+        }
+
+        public static Boolean deleteQuery(string query)
+        {
+            using (SqlConnection con = new SqlConnection(Database.Instance.getConnection().ConnectionString))
+            {
+                using (SqlCommand cmd = new SqlCommand())
+                {
+
+                    cmd.Connection = con;
+                    cmd.CommandType = CommandType.Text;
+                    cmd.CommandText = query;
+                    con.Open();
+
+                    cmd.ExecuteNonQuery();
+
+
+                    con.Close();
+
+                    return true;
+                }
+            }
+
+        }
 
         public static Database Instance
         {

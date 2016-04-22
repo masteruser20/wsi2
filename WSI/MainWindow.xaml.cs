@@ -14,15 +14,8 @@ namespace WSI
 
     public partial class MainWindow : Window
     {
-        private bool isAdmin = false;
+        public static bool isAdmin = false;
 
-        public bool Admin
-        {
-            get
-            {
-                return isAdmin;
-            }
-        }
 
         public MainWindow()
         {
@@ -35,6 +28,7 @@ namespace WSI
             passwordBox.Visibility = Visibility.Visible;
 
         }
+        
 
         private void passwordCancel_Click(object sender, RoutedEventArgs e)
         {
@@ -54,6 +48,7 @@ namespace WSI
                 dictionariesManag.Visibility = Visibility.Visible;
                 password.Password = "";
                 passwordBox.Visibility = Visibility.Hidden;
+                administratorBtn.Visibility = Visibility.Hidden;
             }
             else
             {
@@ -61,5 +56,6 @@ namespace WSI
             }
 
         }
+
     }
 }
