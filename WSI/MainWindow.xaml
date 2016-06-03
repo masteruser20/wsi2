@@ -11,11 +11,23 @@
 
         <TabControl x:Name="tabControl" Margin="0,10,0,28">
             <TabItem Header="Łamanie hasła">
-                <Grid Background="#FFE5E5E5"/>
+                <Grid Background="#FFE5E5E5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="17*"/>
+                        <ColumnDefinition Width="58*"/>
+                    </Grid.ColumnDefinitions>
+                    <PasswordBox x:Name="hackingWordTextBox" HorizontalAlignment="Left" Margin="50,91,0,0" VerticalAlignment="Top" Height="31" Width="182" Grid.Column="1"/>
+                    <Button x:Name="startHacking" Content="Start" HorizontalAlignment="Left" Margin="50,163,0,0" VerticalAlignment="Top" Width="182" Height="30" Click="startHacking_Click" Grid.Column="1"/>
+                    <Label Content="Wprowadź hasło do złamania:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="28,53,0,0" Height="33" Width="168" Grid.ColumnSpan="2"/>
+                </Grid>
             </TabItem>
             <TabItem Header="Słowniki">
                 <Grid Background="#FFE5E5E5">
-                    <Frame Background="White" Name="dictionaries" Source="Dictionaries.xaml"/>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="14*"/>
+                    </Grid.ColumnDefinitions>
+                    <Frame Background="White" Name="dictionaries" Source="Dictionaries.xaml" Grid.ColumnSpan="2"/>
                 </Grid>
             </TabItem>
             <TabItem x:Name="dictionariesManag" Header="Zarządzanie słownikami" HorizontalAlignment="Left" VerticalAlignment="Top" Visibility="Hidden">

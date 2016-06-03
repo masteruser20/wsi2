@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Diagnostics;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Windows;
@@ -57,5 +59,62 @@ namespace WSI
 
         }
 
+        private void startHacking_Click(object sender, RoutedEventArgs e)
+        {
+
+            DataTable result = Database.selectQuery("SELECT word FROM Words WHERE dictionaries_id = 47 ORDER BY word ASC");
+            DataRowCollection rows = result.Rows;
+
+            List<string> dictionaries = new List<string>();
+
+
+            if (rows.Count > 0)
+            {
+
+                foreach (DataRow row in rows)
+                {
+                    dictionaries.Add(row[0].ToString());
+                }
+
+            }
+
+            int i=0, czas=1;
+            string hackingWord = hackingWordTextBox.Password;
+            string nieodgadniete = "Próba złamania hasła zakończyła się niepowodzeniem";
+
+
+            Stopwatch stopwatch = new System.Diagnostics.Stopwatch();
+            stopwatch.Start();
+
+            while (hackingWord!=dictionaries[i]){
+
+
+
+                if (i < (dictionaries.Count - 1))
+                    i++;
+                else
+                    break;
+
+            }
+
+            string elapsedTime = stopwatch.Elapsed.ToString();
+
+
+
+
+            for (int ii = 0; dictionaries[ii] != hackingWord; ii++)
+            {
+                if (ii < dictionaries.Count - 1) continue;
+                else break;
+
+            }
+
+
+
+            if (hackingWord == dictionaries[i])
+                MessageBox.Show("Hasło zostało złamane \n Wynik: " + dictionaries[i] + "\n Przeszuke słowa: " + i + "\n Czas łamania: " + elapsedTime + "s");
+            else
+                MessageBox.Show(nieodgadniete);
+        }
     }
 }
